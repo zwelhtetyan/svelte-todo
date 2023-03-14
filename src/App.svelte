@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { null_to_empty } from 'svelte/internal';
   import { writable } from 'svelte/store';
   import { fade } from 'svelte/transition';
   import type { TodoItem } from './types';
