@@ -1,41 +1,10 @@
 <script lang="ts">
-  import { writable } from 'svelte/store';
-  import { fade } from 'svelte/transition';
-  import type { TodoItem } from './types';
-
-  const todoStore = writable<TodoItem[]>([]);
-  let inputRef: HTMLInputElement;
-
-  function addTodo() {
-    if (!inputRef.value.trim()) return;
-
-    const newTodo: TodoItem = {
-      id: new Date().getTime().toString(),
-      taskName: inputRef.value,
-      done: false,
-    };
-
-    todoStore.update((prevTodos) => [...prevTodos, newTodo]);
-
-    inputRef.value = '';
-  }
+  import Hero from './lib/components/Hero.svelte';
+  import Layout from './lib/components/Layout.svelte';
+  import TodoContainer from './lib/components/TodoContainer.svelte';
 </script>
 
-<main class="p-4">
-  <form on:submit|preventDefault="{addTodo}">
-    <input type="text" bind:this="{inputRef}" class="border border-blue-500" />
-    <button class="border border-blue-500 px-2">+</button>
-  </form>
-
-  {#if $todoStore.length > 0}
-    <ol>
-      {#each $todoStore as todo}
-        <li transition:fade class="text-blue-800 text-lg">
-          {todo.taskName}
-        </li>
-      {/each}
-    </ol>
-  {:else}
-    <p>Please make your first todo.</p>
-  {/if}
-</main>
+<Layout>
+  <Hero slot="hero" />
+  <TodoContainer slot="container" />
+</Layout>
