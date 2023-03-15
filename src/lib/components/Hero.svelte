@@ -1,7 +1,31 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import moon from '../../assets/images/icon-moon.svg';
+  import sun from '../../assets/images/icon-sun.svg';
+</script>
 
 <div
-  class="h-[30vh] xs:h-[37vh] bg-bg-img-mobile xs:bg-bg-img-desktop bg-cover bg-center"
+  class="h-[30vh] xs:h-[38vh] flex items-center justify-center bg-bg-img-mobile xs:bg-bg-img-desktop bg-cover bg-center"
 >
-  insert hero contents
+  <div class="w-full max-w-md">
+    <header class="flex justify-between mb-6">
+      <h1 class="text-4xl uppercase text-white font-bold tracking-[.7rem]">
+        Todo
+      </h1>
+
+      <button class="w-9 h-9 flex items-center justify-center">
+        <img src="{true ? moon : sun}" alt="theme-icon" />
+      </button>
+    </header>
+
+    <div class="relative h-[52px] w-full flex items-center">
+      <input
+        type="text"
+        placeholder="Create a new todo..."
+        class="w-full h-full rounded focus:outline-none pl-14 pr-4 text-lg caret-bright-blue"
+      />
+      <div
+        class="absolute left-4 w-6 h-6 rounded-full border border-[var(--very-light-grayish-blue)]"
+      ></div>
+    </div>
+  </div>
 </div>
