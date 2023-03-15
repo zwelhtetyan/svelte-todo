@@ -5,11 +5,11 @@
 </script>
 
 <div
-  class="h-[30vh] xs:h-[38vh] flex items-center justify-center bg-bg-img-mobile xs:bg-bg-img-desktop bg-cover bg-center"
+  class="min-h-[200px] h-[35vh] xs:h-[38vh] pb-16 px-4 flex items-end justify-center bg-bg-img-mobile xs:bg-bg-img-desktop bg-cover bg-center transition-all"
 >
-  <div class="w-full max-w-md">
+  <div class="w-full max-w-lg">
     <header class="flex justify-between mb-6">
-      <h1 class="text-4xl uppercase text-white font-bold tracking-[.7rem]">
+      <h1 class="text-4xl uppercase text-white font-semibold tracking-[.5rem]">
         Todo
       </h1>
 
@@ -25,14 +25,16 @@
       </button>
     </header>
 
-    <div class="relative h-[52px] w-full flex items-center">
+    <div
+      class="relative h-14 w-full rounded overflow-hidden flex items-center bg-c1 dark:bg-c7 transition-all"
+    >
       <input
         type="text"
         placeholder="Create a new todo..."
-        class="w-full h-full rounded focus:outline-none pl-14 pr-4 text-lg caret-bright-blue"
+        class="w-full h-full focus:outline-none pl-14 pr-4 text-lg caret-bright-blue bg-transparent"
       />
       <div
-        class="absolute left-4 w-6 h-6 rounded-full border border-[var(--very-light-grayish-blue)]"
+        class="absolute left-4 w-6 h-6 rounded-full border border-c2 dark:border-c12 transition-all"
       ></div>
     </div>
   </div>
