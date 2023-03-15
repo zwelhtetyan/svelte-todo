@@ -1,6 +1,7 @@
 <script lang="ts">
   import moon from '../../assets/images/icon-moon.svg';
   import sun from '../../assets/images/icon-sun.svg';
+  import { theme, themeToggler } from '../store/theme';
 </script>
 
 <div
@@ -12,8 +13,15 @@
         Todo
       </h1>
 
-      <button class="w-9 h-9 flex items-center justify-center">
-        <img src="{true ? moon : sun}" alt="theme-icon" />
+      <button
+        class="w-9 h-9 flex items-center justify-center"
+        on:click="{() => themeToggler($theme)}"
+      >
+        <img
+          src="{$theme === 'dark' ? sun : moon}"
+          alt="theme-icon"
+          class="w-6 h-6"
+        />
       </button>
     </header>
 
