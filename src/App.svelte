@@ -21,16 +21,16 @@
   }
 </script>
 
-<main>
+<main class="p-4">
   <form on:submit|preventDefault="{addTodo}">
-    <input type="text" bind:this="{inputRef}" />
-    <button>+</button>
+    <input type="text" bind:this="{inputRef}" class="border border-blue-500" />
+    <button class="border border-blue-500 px-2">+</button>
   </form>
 
   {#if $todoStore.length > 0}
     <ol>
       {#each $todoStore as todo}
-        <li transition:fade>
+        <li transition:fade class="text-blue-800 text-lg">
           {todo.taskName}
         </li>
       {/each}
