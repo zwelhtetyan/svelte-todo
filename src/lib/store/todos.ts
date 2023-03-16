@@ -2,10 +2,17 @@ import { writable } from 'svelte/store';
 import { AddNewTodo } from '../model/todo';
 import type { TodoItem } from '../types';
 
-export const todos = writable<TodoItem[]>([
-  { id: '1', taskName: 'task 1', done: false },
-  { id: '2', taskName: 'task 2', done: true },
-]);
+export const todos = writable<TodoItem[]>(getFromLs('todos') || []);
+
+function addToLS(key: string, value: TodoItem[]) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+function getFromLs(key: string) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+todos.subscribe((todos) => addToLS('todos', todos));
 
 export function addTodo(taskName: string) {
   const newTodo = new AddNewTodo(taskName);
