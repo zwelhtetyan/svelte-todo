@@ -1,5 +1,9 @@
 <script lang="ts">
   import checkIcon from '../../assets/images/icon-check.svg';
+
+  export let id;
+  export let taskName;
+  export let done;
 </script>
 
 <div
@@ -16,5 +20,5 @@
     </div>
   </div>
 
-  <p class="text-lg text-c5 dark:text-c8">Svelte is great!</p>
+  <p class="text-lg text-c5 dark:text-c8">{taskName}</p>
 </div>

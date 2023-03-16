@@ -2,6 +2,7 @@
   import moon from '../../assets/images/icon-moon.svg';
   import sun from '../../assets/images/icon-sun.svg';
   import { theme, themeToggler } from '../store/theme';
+  import { addTodo } from '../store/todos';
 </script>
 
 <div
