@@ -1,10 +1,11 @@
 import { writable } from 'svelte/store';
 import { AddNewTodo } from '../model/todo';
-import type { TodoItem } from '../types';
+import type { Todo } from '../types';
 
-export const todos = writable<TodoItem[]>(getFromLs('todos') || []);
+export const todos = writable<Todo[]>(getFromLs('todos') || []);
+export const category = writable('ALL');
 
-function addToLS(key: string, value: TodoItem[]) {
+function addToLS(key: string, value: Todo[]) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
@@ -37,4 +38,8 @@ export function checkUncheck(id: string) {
       todo.id === id ? { ...todo, done: !todo.done } : todo
     )
   );
+}
+
+export function clearALLComplete() {
+  todos.update((prevTodos) => prevTodos.filter((todo) => !todo.done));
 }

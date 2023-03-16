@@ -1,6 +1,14 @@
 <script lang="ts">
   import TodoItem from './TodoItem.svelte';
-  import { todos } from '../store/todos';
+  import { todos, category, clearALLComplete } from '../store/todos';
+  import { filterTodos } from '../utils/todo';
+  import CategoryButton from './CategoryButton.svelte';
+
+  const categoryArr = [
+    { categoryName: 'ALL', text: 'All' },
+    { categoryName: 'ACTIVE', text: 'Active' },
+    { categoryName: 'COMPLETED', text: 'Completed' },
+  ];
 
   const hoverText = 'hover:text-black hover:dark:text-white transition-all';
 </script>
@@ -12,18 +20,28 @@
     <div
       class="w-full bg-c1 dark:bg-c7 max-w-lg -mt-11 rounded overflow-hidden shadow-container-shadow transition-all"
     >
-      {#each $todos as todo (todo.id)}<TodoItem {...todo} />{/each}
+      {#each filterTodos($category, $todos) as todo (todo.id)}
+        <TodoItem {...todo} />
+      {/each}
 
       <div
         class="flex justify-between py-3 px-4 text-sm text-c4 dark:text-c10 transition-all"
       >
-        <p>5 items left</p>
+        <p>{filterTodos('ACTIVE', $todos).length} items left</p>
         <div class="space-x-3 hidden xs:block">
-          <button class="{hoverText}">All</button>
-          <button class="{hoverText}">Active</button>
-          <button class="{hoverText}">Completed</button>
+          {#each categoryArr as ctg (ctg.categoryName)}
+            <CategoryButton
+              category="{category}"
+              currentCategoryName="{$category}"
+              categoryName="{ctg.categoryName}"
+              text="{ctg.text}"
+            />
+          {/each}
         </div>
-        <button class="{hoverText}">Clear Completed</button>
+
+        <button class="{hoverText}" on:click="{clearALLComplete}"
+          >Clear Completed</button
+        >
       </div>
     </div>
   {/if}

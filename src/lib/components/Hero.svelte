@@ -2,7 +2,7 @@
   import moon from '../../assets/images/icon-moon.svg';
   import sun from '../../assets/images/icon-sun.svg';
   import { theme, themeToggler } from '../store/theme';
-  import { addTodo } from '../store/todos';
+  import { addTodo, category } from '../store/todos';
 
   let todoInput: HTMLInputElement;
 
@@ -12,6 +12,7 @@
     if (!taskName) return;
 
     addTodo(taskName);
+    $category === 'COMPLETED' && category.set('ALL');
 
     todoInput.value = '';
   }
