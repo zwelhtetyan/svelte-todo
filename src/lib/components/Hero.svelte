@@ -3,6 +3,18 @@
   import sun from '../../assets/images/icon-sun.svg';
   import { theme, themeToggler } from '../store/theme';
   import { addTodo } from '../store/todos';
+
+  let todoInput: HTMLInputElement;
+
+  function handleAddTodo() {
+    const taskName = todoInput.value.trim();
+
+    if (!taskName) return;
+
+    addTodo(taskName);
+
+    todoInput.value = '';
+  }
 </script>
 
 <div
@@ -26,17 +38,20 @@
       </button>
     </header>
 
-    <div
+    <form
+      on:submit|preventDefault="{handleAddTodo}"
       class="relative h-14 w-full rounded overflow-hidden flex items-center bg-c1 dark:bg-c7 transition-all"
     >
       <input
         type="text"
+        name="todo"
+        bind:this="{todoInput}"
         placeholder="Create a new todo..."
         class="w-full h-full focus:outline-none pl-14 pr-4 text-lg caret-bright-blue bg-transparent"
       />
       <div
         class="absolute left-4 w-6 h-6 rounded-full border border-c2 dark:border-c12 transition-all"
       ></div>
-    </div>
+    </form>
   </div>
 </div>

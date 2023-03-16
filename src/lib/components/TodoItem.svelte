@@ -1,12 +1,14 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition';
   import checkIcon from '../../assets/images/icon-check.svg';
 
-  export let id;
-  export let taskName;
-  export let done;
+  export let id: string;
+  export let taskName: string;
+  export let done: boolean;
 </script>
 
 <div
+  transition:fade
   class="h-14 p-4 border-b border-b-c2 dark:border-b-c12 flex items-center cursor-pointer transition-all"
 >
   <!-- check circle -->

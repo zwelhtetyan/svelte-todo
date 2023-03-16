@@ -7,7 +7,7 @@ export const todos = writable<TodoItem[]>([
   { id: '2', taskName: 'task 2', done: false },
 ]);
 
-export const addTodo = (taskName: string) => {
+export function addTodo(taskName: string) {
   const newTodo = new AddNewTodo(taskName);
   todos.update((preTodos) => [...preTodos, newTodo]);
-};
+}
