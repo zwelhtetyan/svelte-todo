@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
   import checkIcon from '../../assets/images/icon-check.svg';
+  import { checkUncheck } from '../store/todos';
 
   export let id: string;
   export let taskName: string;
@@ -12,15 +13,24 @@
   class="h-14 p-4 border-b border-b-c2 dark:border-b-c12 flex items-center cursor-pointer transition-all"
 >
   <!-- check circle -->
-  <div
-    class="mr-4 w-6 h-6 rounded-full p-[1px] transition-all bg-c2 dark:bg-c12 hover:bg-check-bg"
+  <button
+    on:click="{() => checkUncheck(id)}"
+    class="{`mr-4 w-6 h-6 rounded-full p-[1px] transition-all bg-c2 dark:bg-c12 hover:bg-check-bg ${
+      done ? 'bg-check-bg' : ''
+    }`}"
   >
     <div
-      class="w-full h-full rounded-full flex items-center justify-center bg-c1 dark:bg-c7 transition-all"
+      class="{`w-full h-full rounded-full flex items-center justify-center bg-c1 dark:bg-c7 transition-all ${
+        done ? 'bg-check-bg' : ''
+      }`}"
     >
-      <!-- <img src="{checkIcon}" alt="check icon" class="w-3" /> -->
+      {#if done}
+        <img src="{checkIcon}" alt="check icon" class="w-3" />
+      {/if}
     </div>
-  </div>
+  </button>
 
-  <p class="text-lg text-c5 dark:text-c8">{taskName}</p>
+  <p class="{`text-lg text-c5 dark:text-c8 ${done ? 'line-through' : ''}`}">
+    {taskName}
+  </p>
 </div>
