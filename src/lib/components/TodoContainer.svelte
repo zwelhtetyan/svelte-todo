@@ -50,9 +50,14 @@
     <div
       class="space-x-3 h-12 flex xs:hidden bg-c1 dark:bg-c7 text-c4 dark:text-c10 w-full mt-4 items-center justify-center shadow-container-shadow transition-all"
     >
-      <button class="{hoverText}">All</button>
-      <button class="{hoverText}">Active</button>
-      <button class="{hoverText}">Completed</button>
+      {#each categoryArr as ctg (ctg.categoryName)}
+        <CategoryButton
+          category="{category}"
+          currentCategoryName="{$category}"
+          categoryName="{ctg.categoryName}"
+          text="{ctg.text}"
+        />
+      {/each}
     </div>
   {/if}
 
