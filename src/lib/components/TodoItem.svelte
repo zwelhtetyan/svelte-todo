@@ -10,7 +10,7 @@
 
 <div
   transition:fade
-  class="h-14 p-4 border-b border-b-c2 dark:border-b-c12 flex items-center cursor-pointer transition-all"
+  class="min-h-[3.5rem] p-4 border-b border-b-c2 dark:border-b-c12 flex items-center cursor-pointer transition-all"
 >
   <!-- check circle -->
   <button
@@ -30,7 +30,11 @@
     </div>
   </button>
 
-  <p class="{`text-lg text-c5 dark:text-c8 ${done ? 'line-through' : ''}`}">
+  <p
+    class="{`flex-1 text-lg text-c5 dark:text-c8 ${
+      done ? 'line-through' : ''
+    }`}"
+  >
     {taskName}
   </p>
 </div>

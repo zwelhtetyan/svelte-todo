@@ -43,6 +43,7 @@
       class="relative h-14 w-full rounded overflow-hidden flex items-center bg-c1 dark:bg-c7 transition-all"
     >
       <input
+        autocomplete="off"
         type="text"
         name="todo"
         bind:this="{todoInput}"
