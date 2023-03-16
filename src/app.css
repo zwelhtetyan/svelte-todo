@@ -18,6 +18,10 @@
   body {
     @apply text-black dark:text-white;
   }
+
+  [contenteditable] {
+    @apply outline-none;
+  }
 }
 
 @layer components {

@@ -1,12 +1,22 @@
 <script lang="ts">
+  import { writable } from 'svelte/store';
   import { fade } from 'svelte/transition';
   import checkIcon from '../../assets/images/icon-check.svg';
-  import { checkUncheck } from '../store/todos';
+  import { checkUncheck, editTodo } from '../store/todos';
   import ActionButton from './ActionButton.svelte';
 
   export let id: string;
   export let taskName: string;
   export let done: boolean;
+
+  let taskElement: HTMLParagraphElement;
+  let isEdit = writable(false);
+
+  function removeEditable(id: string, elem: any) {
+    editTodo(id, elem.textContent);
+    elem.contentEditable = false;
+    isEdit.set(false);
+  }
 </script>
 
 <div
@@ -36,10 +46,17 @@
       class="{`flex-1 cursor-pointer text-lg text-c5 dark:text-c8 ${
         done ? 'line-through' : ''
       }`}"
+      bind:this="{taskElement}"
+      on:blur="{() => removeEditable(id, taskElement)}"
     >
       {taskName}
     </p>
   </div>
 
-  <ActionButton />
+  <ActionButton
+    id="{id}"
+    taskElement="{taskElement}"
+    isEdit="{isEdit}"
+    removeEditable="{() => removeEditable(id, taskElement)}"
+  />
 </div>

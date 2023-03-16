@@ -12,9 +12,21 @@ export function addTodo(taskName: string) {
   todos.update((preTodos) => [...preTodos, newTodo]);
 }
 
+export function editTodo(id: string, updatedTaskName: string) {
+  todos.update((prevTodos) =>
+    prevTodos.map((todo) =>
+      todo.id === id ? { ...todo, taskName: updatedTaskName } : todo
+    )
+  );
+}
+
+export function deleteTodo(id: string) {
+  todos.update((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+}
+
 export function checkUncheck(id: string) {
-  todos.update((prevTodo) =>
-    prevTodo.map((todo) =>
+  todos.update((prevTodos) =>
+    prevTodos.map((todo) =>
       todo.id === id ? { ...todo, done: !todo.done } : todo
     )
   );
