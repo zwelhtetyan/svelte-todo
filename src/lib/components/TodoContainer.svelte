@@ -3,6 +3,7 @@
   import { todos, category, clearALLComplete } from '../store/todos';
   import { filterTodos } from '../utils/todo';
   import CategoryButton from './CategoryButton.svelte';
+  import DragAndDrop from './DragAndDrop.svelte';
 
   const categoryArr = [
     { categoryName: 'ALL', text: 'All' },
@@ -20,9 +21,10 @@
     <div
       class="w-full bg-c1 dark:bg-c7 max-w-lg -mt-11 rounded overflow-hidden shadow-container-shadow transition-all"
     >
-      {#each filterTodos($category, $todos) as todo (todo.id)}
+      <!-- {#each filterTodos($category, $todos) as todo (todo.id)}
         <TodoItem {...todo} />
-      {/each}
+      {/each} -->
+      <DragAndDrop />
 
       <div
         class="flex justify-between py-3 px-4 text-sm text-c4 dark:text-c10 transition-all"

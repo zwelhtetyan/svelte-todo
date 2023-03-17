@@ -21,7 +21,7 @@
 
 <div
   transition:fade
-  class="overflow-x-auto a min-h-[3.5rem] p-4 border-b border-b-c2 dark:border-b-c12 flex items-center justify-between transition-all cursor-move"
+  class="overflow-x-auto a min-h-[3.5rem] bg-c1 dark:bg-c7 p-4 border-b border-b-c2 dark:border-b-c12 flex items-center justify-between transition-all cursor-move"
 >
   <div class="flex-1 flex items-center">
     <!-- check circle -->
