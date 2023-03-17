@@ -2,7 +2,8 @@
   import { todos, category, clearALLComplete } from '../store/todos';
   import { filterTodos } from '../utils/todo';
   import CategoryButton from './CategoryButton.svelte';
-  import Dnd from './DND.svelte';
+
+  import DragAndDrop from './DragAndDrop.svelte';
   import TodoItem from './TodoItem.svelte';
 
   const categoryArr = [
@@ -26,7 +27,7 @@
           <TodoItem {...todo} />
         {/each}
       {:else}
-        <Dnd />
+        <DragAndDrop />
       {/if}
 
       <div
@@ -67,5 +68,7 @@
     </div>
   {/if}
 
-  <p class="my-12 text-c4 dark:text-c10">Drag and drop to reorder list</p>
+  {#if $category === 'ALL'}
+    <p class="my-12 text-c4 dark:text-c10">Drag and drop to reorder list</p>
+  {/if}
 </main>

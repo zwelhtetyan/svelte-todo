@@ -2,7 +2,7 @@
   import type { Writable } from 'svelte/store';
   import iconCross from '../../assets/images/icon-cross.svg';
 
-  import { deleteTodo, editTodo } from '../store/todos';
+  import { deleteTodo } from '../store/todos';
 
   export let taskElement: HTMLParagraphElement;
   export let id: string;
