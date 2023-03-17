@@ -22,6 +22,11 @@
   [contenteditable] {
     @apply outline-none;
   }
+
+  div[data-dnd-item].svelte-5t9ew.svelte-5t9ew.svelte-5t9ew {
+    height: auto !important;
+    min-height: 61px !important;
+  }
 }
 
 @layer components {
