@@ -1,5 +1,4 @@
 <script lang="ts">
-  import TodoItem from './TodoItem.svelte';
   import { todos, category, clearALLComplete } from '../store/todos';
   import { filterTodos } from '../utils/todo';
   import CategoryButton from './CategoryButton.svelte';
@@ -24,6 +23,7 @@
       <!-- {#each filterTodos($category, $todos) as todo (todo.id)}
         <TodoItem {...todo} />
       {/each} -->
+
       <DragAndDrop />
 
       <div
