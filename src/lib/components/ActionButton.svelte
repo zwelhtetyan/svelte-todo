@@ -63,7 +63,7 @@
     {/if}
   </button>
 
-  <button on:click="{() => deleteTodo(id)}">
+  <button on:click="{() => deleteTodo(id)}" class="w-5 h-5">
     <img src="{iconCross}" alt="delete icon" class="w-5 h-5" />
   </button>
 </div>

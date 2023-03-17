@@ -21,7 +21,7 @@
 
 <div
   transition:fade
-  class="min-h-[3.5rem] p-4 border-b border-b-c2 dark:border-b-c12 flex items-center justify-between transition-all"
+  class="overflow-x-auto a min-h-[3.5rem] p-4 border-b border-b-c2 dark:border-b-c12 flex items-center justify-between transition-all cursor-move"
 >
   <div class="flex-1 flex items-center">
     <!-- check circle -->
@@ -42,15 +42,17 @@
       </div>
     </button>
 
-    <p
-      class="{`flex-1 cursor-pointer text-lg text-c5 dark:text-c8 ${
-        done ? 'line-through' : ''
-      }`}"
-      bind:this="{taskElement}"
-      on:blur="{() => removeEditable(id, taskElement)}"
-    >
-      {taskName}
-    </p>
+    <div class="flex-1">
+      <p
+        class="{` inline-block cursor-pointer text-lg text-c5 dark:text-c8 ${
+          done ? 'line-through' : ''
+        }`}"
+        bind:this="{taskElement}"
+        on:blur="{() => removeEditable(id, taskElement)}"
+      >
+        {taskName}
+      </p>
+    </div>
   </div>
 
   <ActionButton

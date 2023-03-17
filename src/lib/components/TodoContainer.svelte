@@ -28,6 +28,7 @@
         class="flex justify-between py-3 px-4 text-sm text-c4 dark:text-c10 transition-all"
       >
         <p>{filterTodos('ACTIVE', $todos).length} items left</p>
+
         <div class="space-x-3 hidden xs:block">
           {#each categoryArr as ctg (ctg.categoryName)}
             <CategoryButton
