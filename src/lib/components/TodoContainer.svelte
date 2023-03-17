@@ -68,7 +68,7 @@
     </div>
   {/if}
 
-  {#if $category === 'ALL'}
+  {#if $todos.length > 0 && $category === 'ALL'}
     <p class="my-12 text-c4 dark:text-c10">Drag and drop to reorder list</p>
   {/if}
 </main>
