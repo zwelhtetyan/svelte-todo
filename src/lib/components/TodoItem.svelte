@@ -1,6 +1,5 @@
 <script lang="ts">
   import { writable } from 'svelte/store';
-  import { fade } from 'svelte/transition';
   import checkIcon from '../../assets/images/icon-check.svg';
   import { checkUncheck, editTodo, category } from '../store/todos';
   import ActionButton from './ActionButton.svelte';
@@ -20,7 +19,6 @@
 </script>
 
 <div
-  transition:fade
   class="{`overflow-x-auto a min-h-[3.5rem] bg-c1 dark:bg-c7 p-4 border-b border-b-c2 dark:border-b-c12 flex items-center justify-between transition-all ${
     $category === 'ALL' && 'cursor-move'
   }`}"
